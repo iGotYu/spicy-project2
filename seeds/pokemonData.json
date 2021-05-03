@@ -1,0 +1,41 @@
+[
+    {
+      "name": "Ampharos",
+      "subtypes": ["Stage 2"],
+      "img_url": "https://images.pokemontcg.io/pl1/1.png",
+      "tcg_link": "https://prices.pokemontcg.io/tcgplayer/pl1-1",
+      "prices": {
+        "low": 6.75,
+        "mid": 7.86,
+        "high": 14.98
+      },
+      "type": ["Lightning"],
+      "grading": 6
+    },
+    {
+      "name": "Venusaur-EX",
+      "subtypes": ["Basic", "EX"],
+      "img_url": "https://images.pokemontcg.io/xy1/1.png",
+      "tcg_link": "http://prices.pokemontcg.io/tcgplayer/xy1-1",
+      "prices": {
+        "low": 0.78,
+        "mid": 2.51,
+        "high": 12.27
+      },
+      "type": ["Grass"],
+      "grading": 7
+    },
+    {
+      "name": "Caterpie",
+      "subtypes": "Basic",
+      "img_url": "https://images.pokemontcg.io/xy2/1.png",
+      "tcg_link": "https://prices.pokemontcg.io/tcgplayer/xy2-1",
+      "prices": {
+        "low": 0.08,
+        "mid": 0.25,
+        "high": 1.25
+      },
+      "type": ["Grass"],
+      "grading": 8
+    }
+  ]
