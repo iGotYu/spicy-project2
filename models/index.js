@@ -5,7 +5,7 @@ const { BelongsTo } = require('sequelize/types');
 
 
 User.hasMany(Pokemon, {through: Connecter,
-foreignKey: 'pokemon_id'
+foreignKey: 'grade'
 });
 //pokemon belongs to many users through connector 
 Pokemon.belongsToMany (User, {through: Connecter,
