@@ -48,4 +48,8 @@ router.get('/logout', (req, res) => {
     req.session.destroy();
     res.render("homepage");
 })
+router.get("/chart", (req, res)=>{
+    res.render('graph');
+})
+
 module.exports = router;
