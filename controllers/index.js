@@ -14,4 +14,8 @@ router.post("/login", (req, res) => {
 router.post("/signup", (req, res) => {
 
 })
+router.get("/chart", (req, res)=>{
+    res.render('graph');
+})
+
 module.exports = router;
