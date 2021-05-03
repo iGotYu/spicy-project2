@@ -38,11 +38,11 @@ Pokemon.init({
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
   },
-  pricehigh: {
+  priceshigh: {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
   },
-  type:{
+  type1:{
       type: DataTypes.STRING,
       allowNull: false,
   },
