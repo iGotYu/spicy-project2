@@ -7,22 +7,22 @@ const fetchObj = {
 };
 console.log(fetchObj);
 
-// fetch("/login", {
-//     method: "POST",
-//     body:JSON.stringify(fetchObj),
-//     headers:{
-//         "Content-Type": "application/json"
-//     }
-// }).then(res=>{
-//     console.log(res);
-//     if(res.ok){
-//         console.log("Logged In successfully!");
-//         location.replace("/dashboard");
-//     } else {
-//         alert("Login failed!");
-//         location.reload();
-//     }
-// })
+fetch("/login", {
+    method: "POST",
+    body:JSON.stringify(fetchObj),
+    headers:{
+        "Content-Type": "application/json"
+    }
+}).then(res=>{
+    console.log(res);
+    if(res.ok){
+        console.log("Logged In successfully!");
+        location.replace("/dashboard");
+    } else {
+        alert("Login failed!");
+        location.reload();
+    }
+})
 });
 
 document.querySelector("#signupForm").addEventListener("submit", event=>{
@@ -35,20 +35,23 @@ document.querySelector("#signupForm").addEventListener("submit", event=>{
     };
     console.log(fetchObj);
 
-    // fetch("/signup", {
-    //     method: "POST",
-    //     body:JSON.stringify(fetchObj),
-    //     headers:{
-    //         "Content-Type": "application/json"
-    //     }
-    // }).then(res=>{
-    //     console.log(res);
-    //     if(res.ok){
-    //         console.log("Signed up successfully!");
-    //         location.replace("/dashboard");
-    //     } else {
-    //         alert("Signup failed!");
-    //         location.reload();
-    //     }
-    // })
+    fetch("/signup", {
+        method: "POST",
+        body:JSON.stringify(fetchObj),
+        headers:{
+            "Content-Type": "application/json"
+        }
+    }).then(res=>{
+        console.log(res);
+        if(res.ok){
+            console.log("Signed up successfully!");
+            location.replace("/dashboard");
+        } else {
+            alert("Signup failed!");
+            location.reload();
+        }
+    })
 });
+
+//console.log(req.session.user);
+//document.querySelector("#logMeOut").style = "display: list-item";
