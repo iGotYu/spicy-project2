@@ -22,14 +22,14 @@ Connecter.init ({
         type: DataTypes.DECIMAL(10,2),
         allowNull: true,
     },
-    foreignUser: {
+    user_id: {
         type: DataTypes.STRING,
         reference : {
             model:'user',
             key: 'id',
         },
     },
-    foreignPokemon:{
+    pokemon_id:{
         type: DataTypes.STRING,
         reference : {
             model:'pokemon',
