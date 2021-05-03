@@ -1,41 +1,41 @@
 [
-    {
-      "name": "Ampharos",
-      "subtypes1": "Stage 2",
-      "subtypes2": null,
-      "img_url": "https://images.pokemontcg.io/pl1/1.png",
-      "tcg_link": "https://prices.pokemontcg.io/tcgplayer/pl1-1",
-      "priceslow": 6.75,
-      "pricesmid": 7.86,
-      "priceshigh": 14.98,
-      "type1": "Lightning",
-      "type2":null,
-      "grading": 6
-    },
-    {
-      "name": "Venusaur-EX",
-      "subtypes1": "Basic",
-      "subtypes2": "EX",
-      "img_url": "https://images.pokemontcg.io/xy1/1.png",
-      "tcg_link": "http://prices.pokemontcg.io/tcgplayer/xy1-1",
-      "priceslow": 0.78,
-      "pricesmid": 2.51,
-      "priceshigh": 12.27,
-      "type1": "Grass",
-      "type2":null,
-      "grading": 7
-    },
-    {
-      "name": "Caterpie",
-      "subtypes1": "Basic",
-      "subtypes2": null,
-      "img_url": "https://images.pokemontcg.io/xy2/1.png",
-      "tcg_link": "https://prices.pokemontcg.io/tcgplayer/xy2-1",
-      "priceslow": 0.08,
-      "pricesmid": 0.25,
-      "priceshigh": 1.25,
-      "type1": "Grass",
-      "type2":null,
-      "grading": 8
-    }
-  ]
+  {
+    "name": "Ampharos",
+    "subtypes1": "Stage 2",
+    "subtypes2": null,
+    "img_url": "https://images.pokemontcg.io/pl1/1.png",
+    "tcg_link": "https://prices.pokemontcg.io/tcgplayer/pl1-1",
+    "priceslow": 6.75,
+    "pricesmid": 7.86,
+    "priceshigh": 14.98,
+    "type1": "Lightning",
+    "type2":null,
+    "grading": 6
+  },
+  {
+    "name": "Venusaur-EX",
+    "subtypes1": "Basic",
+    "subtypes2": "EX",
+    "img_url": "https://images.pokemontcg.io/xy1/1.png",
+    "tcg_link": "http://prices.pokemontcg.io/tcgplayer/xy1-1",
+    "priceslow": 0.78,
+    "pricesmid": 2.51,
+    "priceshigh": 12.27,
+    "type1": "Grass",
+    "type2":null,
+    "grading": 7
+  },
+  {
+    "name": "Caterpie",
+    "subtypes1": "Basic",
+    "subtypes2": null,
+    "img_url": "https://images.pokemontcg.io/xy2/1.png",
+    "tcg_link": "https://prices.pokemontcg.io/tcgplayer/xy2-1",
+    "priceslow": 0.08,
+    "pricesmid": 0.25,
+    "priceshigh": 1.25,
+    "type1": "Grass",
+    "type2":null,
+    "grading": 8
+  }
+]
