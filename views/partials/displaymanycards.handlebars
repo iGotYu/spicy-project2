@@ -4,6 +4,50 @@
     <h4 class="card-title">{{name}}</h4>
     <h6 class="card-text">Set: {{setName}}</h6>
     <h6 class="card-text">Rarity: {{rarity}}</h6>
-    <a href="#" class="btn btn-primary">More Info</a>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      More Info
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{name}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src={{img_url}}>
+            <h6>Set: {{setName}}</h6>
+            <h6>Rarity: {{rarity}}</h6>
+            <div class="row">
+            {{#if price2Type}}
+            <div class="col-s-6">
+              <ul>
+              <h6>{{price1Type}}</h6>
+              <li>Low: ${{price1low}}</li>
+              <li>Mid: ${{price1mid}}</li>
+              <li>High: ${{price1high}}</li>
+            </ul></div>
+            
+            <ul>
+              <h6>{{price2Type}}</h6>
+              <li>Low: ${{price2low}}</li>
+              <li>Mid: ${{price2mid}}</li>
+              <li>High: ${{price2high}}</li>
+            </ul>
+            {{/if}}
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save Card</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
