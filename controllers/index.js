@@ -53,4 +53,8 @@ router.get("/chart", (req, res)=>{
     res.render('graph');
 })
 
+router.get("/search", (req, res)=>{
+    res.render('displaysearchcard');
+})
+
 module.exports = router;
