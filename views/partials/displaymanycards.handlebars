@@ -4,42 +4,59 @@
     <h4 class="card-title">{{name}}</h4>
     <h6 class="card-text">Set: {{setName}}</h6>
     <h6 class="card-text">Rarity: {{rarity}}</h6>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal{{id}}">
       More Info
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">{{name}}</h5>
+            <h3 class="modal-title" id="exampleModalLabel">{{name}}</h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <img src={{img_url}}>
-            <h6>Set: {{setName}}</h6>
-            <h6>Rarity: {{rarity}}</h6>
-            <div class="row">
+            <h5>Set: {{setName}}</h5>
+            <h5>Rarity: {{rarity}}</h5>
+            {{#if type2}}
+              <h5>Type: {{type1}} and {{type2}}</h5>
+            {{else}}
+              <h5>Type: {{type1}}</h5>
+            {{/if}}
+            <div class="row justify-content-around">
             {{#if price2Type}}
             <div class="col-s-6">
               <ul>
-              <h6>{{price1Type}}</h6>
+              <h5>{{price1Type}}</h5>
               <li>Low: ${{price1low}}</li>
               <li>Mid: ${{price1mid}}</li>
               <li>High: ${{price1high}}</li>
-            </ul></div>
-            
+            </ul>
+            </div>
+            <div class="col-s-6">
             <ul>
-              <h6>{{price2Type}}</h6>
+              <h5>{{price2Type}}</h5>
               <li>Low: ${{price2low}}</li>
               <li>Mid: ${{price2mid}}</li>
               <li>High: ${{price2high}}</li>
             </ul>
+            </div>
+            {{else}}
+            <div class="col-s-6">
+              <ul>
+              <h5>{{price1Type}}</h5>
+              <li>Low: ${{price1low}}</li>
+              <li>Mid: ${{price1mid}}</li>
+              <li>High: ${{price1high}}</li>
+            </ul>
+            </div>
             {{/if}}
             </div>
+            <h5><a href="{{tcg_link}}" target="_blank">View on TCG</a></h5>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
