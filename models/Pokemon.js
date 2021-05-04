@@ -14,13 +14,13 @@ Pokemon.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
-  subtypes1: {
+  setName: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  subtypes2: {
+  rarity: {
     type: DataTypes.STRING,
-    allowNull: true,
+    allowNull: false,
   },
   img_url: {
     type: DataTypes.STRING,
@@ -30,17 +30,37 @@ Pokemon.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
-  priceslow: {
+  price1Type: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  price1low: {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
   },
-  pricesmid: {
+  price1mid: {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
   },
-  priceshigh: {
+  price1high: {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
+  },
+  price2Type: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  price2low: {
+    type: DataTypes.DECIMAL(10, 2),
+    allowNull: true,
+  },
+  price2mid: {
+    type: DataTypes.DECIMAL(10, 2),
+    allowNull: true,
+  },
+  price2high: {
+    type: DataTypes.DECIMAL(10, 2),
+    allowNull: true,
   },
   type1:{
       type: DataTypes.STRING,

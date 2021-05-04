@@ -22,20 +22,20 @@ Connecter.init ({
         type: DataTypes.DECIMAL(10,2),
         allowNull: true,
     },
-    user_id: {
-        type: DataTypes.STRING,
-        reference : {
-            model:'user',
-            key: 'id',
-        },
-    },
-    pokemon_id:{
-        type: DataTypes.STRING,
-        reference : {
-            model:'pokemon',
-            key:'id',
-        },
-    },
+    // user_id: {
+    //     type: DataTypes.STRING,
+    //     reference : {
+    //         model:'user',
+    //         key: 'id',
+    //     },
+    // },
+    // pokemon_id:{
+    //     type: DataTypes.STRING,
+    //     reference : {
+    //         model:'pokemon',
+    //         key:'id',
+    //     },
+    // },
 },
 {
     sequelize,
