@@ -89,4 +89,9 @@ router.get("/search/:name", (req, res) => {
     });
 });
 
+router.post("/api/connecter", (req,res) => {
+  console.log(req.body)
+  res.json(req.body)
+})
+
 module.exports = router;
