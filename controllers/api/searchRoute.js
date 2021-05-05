@@ -2,8 +2,6 @@ const router = require('express').Router();
 const  Pokemon  = require('../../models/Pokemon');
 const axios = require("axios");
 
-const axios = require('axios')
-
 router.get('/', async (req, res) => {
     try {
         const newPokemon = await Pokemon.findAll({ include: [{model:Pokemon}]

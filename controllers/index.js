@@ -53,27 +53,17 @@ router.post("/signup", (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-router.get('/logout', (req, res) => {
-    req.session.destroy();
-    res.render("homepage");
-})
-router.get("/chart", (req, res)=>{
-    res.render('graph', { isLoggedIn: req.session.user? true: false});
-})
-=======
 router.get("/logout", (req, res) => {
   req.session.destroy();
   res.render("homepage");
 });
->>>>>>> a027a773ddf86bb60ba5cbfce8c5af12e3c02a4c
 
 router.get("/chart", (req, res) => {
-  res.render("graph");
+  res.render("graph", { isLoggedIn: req.session.user? true: false });
 });
 
 router.get("/search", (req, res) => {
-  res.render("search");
+  res.render("search", { isLoggedIn: req.session.user? true: false });
 });
 
 // search by type: https://api.pokemontcg.io/v2/cards?q=types:"${type}"
@@ -90,6 +80,7 @@ router.get("/search/:name", (req, res) => {
     .get(urlToFetch)
     .then((data) => {
       let allData = data.data.data;
+      //console.log(allData);
       res.render("layouts/displaysearchresults", {
         cards: allData,
       });
