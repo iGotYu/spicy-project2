@@ -13,9 +13,9 @@
 
 .pokedex{
     position: relative;
-    width: 840px;
+    width: 850px;
     height: 650px;
-    margin: 0 auto;
+    margin: 50px auto;
     background-image: url("/images/pokedex.png");
     border: 2px solid #ccc;
     box-shadow: 7px 7px 20px #555;
