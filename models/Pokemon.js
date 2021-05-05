@@ -10,6 +10,10 @@ Pokemon.init({
     primaryKey: true,
     autoIncrement: true,
   },
+  tcg_id: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,

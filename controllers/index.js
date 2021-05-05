@@ -81,8 +81,8 @@ router.get("/search/:name", (req, res) => {
     .then((data) => {
       let allData = data.data.data;
       //console.log(allData);
-      res.render("layouts/displaysearchresults", {
-        cards: allData,
+      res.render("search", {
+        card: allData,
       });
     })
     .catch((err) => {
