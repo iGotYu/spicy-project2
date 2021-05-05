@@ -27,7 +27,7 @@ router.post("/login", (req, res) => {
         }
         if(bcrypt.compareSync(req.body.password, foundUser.password)) {
             req.session.user = {
-                userName:foundUser.userName,
+                //userName:foundUser.userName,
                 email:foundUser.email
             };
             return res.json(foundUser);
@@ -36,13 +36,13 @@ router.post("/login", (req, res) => {
 })
 router.post("/signup", (req, res) => {
   User.create({
-    userName: req.body.userName,
+    //userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
   })
     .then((newUser) => {
       req.session.user = {
-        userName: newUser.userName,
+        //userName: newUser.userName,
         email: newUser.email,
       };
       res.json(newUser);
