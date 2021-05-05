@@ -58,13 +58,19 @@
             </div>
             <h5><a href="{{tcg_link}}" target="_blank">View on TCG</a></h5>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save Card</button>
+          <div class="modal-footer justify-content-around">
+            <form class ="card-save-form text-center">
+              <div class ="form-group">
+                <h5>Add this card to your collection</h5>
+                <label for="cardGrade">Card Grade</label>
+                <input type="text" id="cardGrade{{id}}" placeholder="7, 8, 9, 10">
+              </div>
+              <input type="hidden" value={{id}}>
+            <button type="submit" class="btn btn-primary">Save Card</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>

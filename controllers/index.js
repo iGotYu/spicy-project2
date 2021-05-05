@@ -55,7 +55,7 @@ router.get('/logout', (req, res) => {
     res.render("homepage");
 })
 router.get("/chart", (req, res)=>{
-    res.render('graph');
+    res.render('graph', { isLoggedIn: req.session.user? true: false});
 })
 
 router.get("/search", (req, res)=>{
