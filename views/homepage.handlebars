@@ -1,4 +1,4 @@
-<div class="home-forms mt-5">
+{{!-- <div class="home-forms mt-5">
   <form id="signupForm">
     <div class="form-group">
       <h1>Pokedex Sign Up</h1>
@@ -32,4 +32,38 @@
     </div>
     <button type="submit" class="btn btn-primary">Log Me In</button>
   </form>
+</div> --}}
+
+<div class="pokedex">
+  <div class= "home-forms">
+    <form id= "singUpForm">
+      <div class="form-group absolute">
+        <h1>Pokedex Sign Up</h1>
+        <label for="signUpEmail">Email Address</label>
+        <input type="email" class="form-control" id="signUpEmail"aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+    <div class="form-group absolute">
+      <label for="signUpName">Username</label>
+      <input type="text" class="form-control" id="signUpName">
+    </div>
+    <button type="submit" class="btn btn-primary">Sign Me Up</button>
+    </form>
+  </div>
+
+  <div class="home-forms">
+  <form id="loginForm">
+    <div class="form-group absolute">
+      <h1>Pokedex Log In</h1>
+      <label for="loginEmail">Email address</label>
+      <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group absolute">
+      <label for="loginPassword">Password</label>
+      <input type="password" class="form-control" id="loginPassword">
+    </div>
+    <button type="submit" class="btn btn-primary">Log Me In</button>
+  </form>
+</div>
 </div>

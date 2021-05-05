@@ -2,3 +2,33 @@
     display: flex;
     justify-content: space-around;
 }
+
+/* .absolute{
+    position: absolute;
+}
+/* 
+input,
+email,
+textarea{
+    background-color:transparent;
+    border: none;
+}
+
+input {
+    margin-left: 10px;
+    width: 120px;
+    font-size: .8em;
+    letter-spacing: 2px;
+    padding: 5px;
+} */
+
+.pokedex{
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    background-image: url("/images/pokedex.png");
+    border: 2px solid #ccc;
+    box-shadow: 7px 7px 20px #555;
+} 
+
