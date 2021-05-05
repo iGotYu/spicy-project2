@@ -58,13 +58,23 @@
             </div>
             <h5><a href="{{tcg_link}}" target="_blank">View on TCG</a></h5>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save Card</button>
+          <div class="modal-footer justify-content-around">
+            <form class ="card-sell-form text-center">
+              <div class ="form-group">
+                <h5>I Sold my Beloved Card :( </h5>
+                <label for="cardPrice{{id}}">Sale Price</label>
+                <input type="text" id="cardPrice{{id}}" placeholder="$XXX.xx">
+              </div>
+              <div class ="form-group">
+                <label for="saleDate{{id}}">Sale Date</label>
+                <input type="date" id="saleDate{{id}}">
+              </div>
+              <input type="hidden" class="cardid" value={{id}}>
+            <button type="submit" class="btn btn-primary">Remove</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
