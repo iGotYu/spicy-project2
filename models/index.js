@@ -1,7 +1,6 @@
 const Pokemon = require('./Pokemon');
 const User = require('./User');
 const Connecter = require('./Connecter');
-const { BelongsTo } = require('sequelize/types');
 
 
 // User.hasMany(Pokemon, {through: Connecter,
@@ -19,3 +18,5 @@ Pokemon.hasMany(Connecter);
 Connecter.belongsTo(User);
 
 Connecter.belongsTo(Pokemon);
+
+module.exports = {User, Pokemon, Connecter}
