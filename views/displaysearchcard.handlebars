@@ -1,24 +1,26 @@
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src={{image_url}} alt="Pokemon Card Image">
-    <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-        <p class="card-text">{{subtype1}}</p>
-        <p class="card-text">{{subtype2}}</p>
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{priceLow}}</li>
-        <li class="list-group-item">{{priceMed}}</li>
-        <li class="list-group-item">{{priceHigh}}</li>
-    </ul>
-    <div class="card-body">
-        <p>{{type1}}</p>
-        <p>{{type2}}</p>
-    </div>
-    <div class="card-body">
-        <a href="#{{tcgplayer_url}}" class="card-link">TCG Link</a>
-    </div>
-</div>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+{{#each cards as |card|}}
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src={{card.images.small}} alt="Pokemon Card Image">
+        <div class="card-body">
+            <h5 class="card-title">{{card.name}}</h5>
+            <p class="card-text">{{card.set.name}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{card.tcgplayer.prices.holofoil.low}}</li>
+            <li class="list-group-item">{{card.tcgplayer.prices.holofoil.mid}}</li>
+            <li class="list-group-item">{{card.tcgplayer.prices.holofoil.high}}</li>
+        </ul>
+        <div class="card-body">
+            <p>{{card.types}}</p>
+        </div>
+        <div class="card-body">
+            <a href={{card.tcgplayer.url}} target="_blank" class="card-link">TCG Link</a>
+        </div>
+    </div>
+{{/each}}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="/js/fetch.js"></script>
+<script src="/js/script.js"></script>
