@@ -25,12 +25,12 @@ fetch("/login", {
 })
 });
 
-document.querySelector("#signupForm").addEventListener("submit", event=>{
+document.querySelector("#signUpForm").addEventListener("submit", event=>{
     event.preventDefault();
 
     const fetchObj = {
         email:document.querySelector("#signUpEmail").value,
-        userName:document.querySelector("#signUpName").value,
+        //userName:document.querySelector("#signUpName").value,
         password:document.querySelector("#signUpPassword").value
     };
     console.log(fetchObj);
