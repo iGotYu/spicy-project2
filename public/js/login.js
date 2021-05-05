@@ -52,6 +52,3 @@ document.querySelector("#signupForm").addEventListener("submit", event=>{
         }
     })
 });
-
-//console.log(req.session.user);
-//document.querySelector("#logMeOut").style = "display: list-item";
