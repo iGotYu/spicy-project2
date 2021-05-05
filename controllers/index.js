@@ -18,6 +18,7 @@ router.get("/dashboard", (req, res) => {
   });
 });
 router.post("/login", (req, res) => {
+<<<<<<< HEAD
   User.findOne({
     where: {
       email: req.body.email,
@@ -36,15 +37,35 @@ router.post("/login", (req, res) => {
     }
   });
 });
+=======
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then(foundUser => {
+        if(!foundUser) {
+            req.session.destroy();
+            return res.status(401).send("Login Failed");
+        }
+        if(bcrypt.compareSync(req.body.password, foundUser.password)) {
+            req.session.user = {
+                //userName:foundUser.userName,
+                email:foundUser.email
+            };
+            return res.json(foundUser);
+        }
+    })
+})
+>>>>>>> develop
 router.post("/signup", (req, res) => {
   User.create({
-    userName: req.body.userName,
+    //userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
   })
     .then((newUser) => {
       req.session.user = {
-        userName: newUser.userName,
+        //userName: newUser.userName,
         email: newUser.email,
       };
       res.json(newUser);

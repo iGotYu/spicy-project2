@@ -1,17 +1,8 @@
 const searchFormHandler = async (event) => {
   event.preventDefault();
-  const searchName = document.getElementById("search").value;
-
-  if (searchName) {
-    const response = await fetch("search/:name", {
-      method: "GET",
-    });
-    if (response.ok) {
-      document.location.replace("/displaysearchcard");
-    } else {
-      alert(response.statusText);
-    }
-  }
+  const searchName = document.querySelector("#search").value;
+  console.log(searchName);
+  location.assign(`/search/${searchName}`);
 };
 
 document
