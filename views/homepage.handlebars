@@ -1,35 +1,38 @@
-<div class="home-forms mt-5">
-  <form id="signupForm">
-    <div class="form-group">
-      <h1>Pokedex Sign Up</h1>
-      <label for="signupEmail">Email address</label>
-      <input type="email" class="form-control" id="signUpEmail" aria-describedby="emailHelp">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
+<div class="pokedex">
+  <div class= "home-forms">
+    <form id= "singUpForm">
+      <div class="form-group absolute mb-0">
+        <h1 class = "mb-0">Sign Up</h1>
+        <label for="signUpEmail">Email Address</label>
+        <input type="email" class="form-control mb-0" id="signUpEmail"aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+    {{!-- <div class="form-group absolute">
       <label for="signUpName">Username</label>
       <input type="text" class="form-control" id="signUpName">
-    </div>
-    <div class="form-group">
+    </div> --}}
+    <div class= "form-group absolute mb-0">
       <label for="signUpPassword">Password</label>
-      <input type="password" class="form-control" id="signUpPassword">
+      <input type="password" class="form-control mb-0" id="signUpPassword">
     </div>
     <button type="submit" class="btn btn-primary">Sign Me Up</button>
-  </form>
-</div>
+    </form>
+  </div>
 
-<div class="home-forms mt-5">
+  <div class="home-forms">
   <form id="loginForm">
-    <div class="form-group">
-      <h1>Pokedex Log In</h1>
+    <div class="form-group absolute mb-0">
+      <h1 class = "mb-0">Log In</h1>
       <label for="loginEmail">Email address</label>
-      <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
+      <input type="email" class="form-control mb-0" id="loginEmail" aria-describedby="emailHelp">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
-    <div class="form-group">
+    <div class="form-group absolute mb-0">
       <label for="loginPassword">Password</label>
-      <input type="password" class="form-control" id="loginPassword">
+      <input type="password" class="form-control mb-0" id="loginPassword">
     </div>
     <button type="submit" class="btn btn-primary">Log Me In</button>
   </form>
 </div>
+
+<script src="/js/login.js"></script>
