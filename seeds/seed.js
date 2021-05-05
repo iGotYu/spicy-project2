@@ -1,6 +1,5 @@
 const sequilize = require("../config/connection");
-const User = require("../models/User");
-const Pokemon = require("../models/Pokemon");
+const {User, Pokemon, Connecter} = require("../models")
 
 const userData = require("./userData.json");
 const pokemonData = require("./pokemonData.json");

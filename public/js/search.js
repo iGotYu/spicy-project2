@@ -8,3 +8,8 @@ const searchFormHandler = async (event) => {
 document
   .querySelector(".search-form")
   .addEventListener("submit", searchFormHandler);
+
+saveFunction =>  {
+    document.getElementById("saveCard")
+  }
+  //save fetch data into table
