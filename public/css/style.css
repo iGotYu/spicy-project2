@@ -1,8 +1,15 @@
 .home-forms {
     display: flex;
     justify-content: space-around;
+    margin: 36px -12px 32px 10px;
 }
-
+.form-control{
+    width: 250px;
+    height:25px;
+}
+#loginForm {
+    margin-top: 75px
+}
 /* .absolute{
     position: absolute;
 }
@@ -24,11 +31,12 @@ input {
 
 .pokedex{
     position: relative;
-    width: 800px;
-    height: 600px;
+    width: 840px;
+    height: 650px;
     margin: 0 auto;
     background-image: url("/images/pokedex.png");
     border: 2px solid #ccc;
     box-shadow: 7px 7px 20px #555;
+    background-repeat: no-repeat;
 } 
 
