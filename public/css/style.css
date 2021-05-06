@@ -1,3 +1,10 @@
+h1{
+    text-shadow: -1px 0 rgb(255, 0, 0),  0 1px  rgb(255, 0, 0), 1px 0 rgb(255, 0, 0), 0 -1px  rgb(255, 0, 0);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:bold;
+    color: rgb(251, 255, 0);
+    text-align: center;
+}
 .home-forms {
     display: flex;
     justify-content: space-around;
@@ -9,7 +16,10 @@
     width: 250px;
     height:25px;
 }
-
+.card {
+    margin-bottom: 20px;
+    margin-top: 20px
+}
 .pokedex{
     position: relative;
     width: 60vw;
@@ -47,4 +57,7 @@ background-size: cover;
         width: 60vw;
         height: 20vh;
     }
+.rowz{
+    margin: 10px
+}
 }
