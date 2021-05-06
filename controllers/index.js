@@ -75,6 +75,29 @@ router.get("/search", (req, res) => {
 
 //search by rarity: https://api.pokemontcg.io/v2/cards?q=rarity:"${rarity}"
 
+router.get("/search/:name/:type", (req, res) => {
+  const name = req.params.name;
+  const type = req.params.type;
+  console.log(name, type);
+  const urlToFetch = `https://api.pokemontcg.io/v2/cards?q=name:"${name}"%20subtypes:"${type}"`;
+  axios.defaults.headers.common["X-Api-Key"] =
+    "7397e20d-407f-4487-b7a4-e70011172529";
+  axios
+    .get(urlToFetch)
+    .then((data) => {
+      let allData = data.data.data;
+      // console.log(allData);
+      res.render("search", {
+        isLoggedIn: req.session.user ? true : false,
+        card: allData,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+
 router.get("/search/:name", (req, res) => {
   const { name } = req.params;
   console.log(name);
@@ -87,6 +110,7 @@ router.get("/search/:name", (req, res) => {
       let allData = data.data.data;
       // console.log(allData);
       res.render("search", {
+        isLoggedIn: req.session.user ? true : false,
         card: allData,
       });
     })
