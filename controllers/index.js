@@ -28,10 +28,11 @@ router.post("/login", (req, res) => {
       return res.status(401).send("Login Failed");
     }
     if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+      console.log(foundUser.dataValues.id)
       req.session.user = {
         //userName:foundUser.userName,
         email: foundUser.email,
-        id: foundUser.id,
+        id: foundUser.dataValues.id,
       };
       return res.json(foundUser);
     }
@@ -119,7 +120,7 @@ router.get("/search/:name", (req, res) => {
 });
 
 router.post("/api/connecter", async (req, res) => {
-  console.log(req.session);
+  // console.log(req.session.user.id);
   let foundPokemon = await Pokemon.findOne({
     where: {
       tcg_id: req.body.tcg_id,
@@ -159,12 +160,14 @@ router.post("/api/connecter", async (req, res) => {
       type1: result.data.data.types[firstType],
     });
     console.log(createPokemon);
-  //   Connecter.create({
-  //     grade: req.body.grade,
-  //     pokemonId: result.data.data.id,
-  //     userId: req.session.id,
-  //   });
-    res.json(createPokemon);
+    console.log(createPokemon.id);
+    console.log(req.session.user.id)
+    let newConnecter = await Connecter.create({
+      grade: req.body.grade,
+      pokemonId: createPokemon.id,
+      userId: req.session.user.id,
+    });
+    res.json(newConnecter);
    }
 });
 
