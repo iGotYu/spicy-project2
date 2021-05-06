@@ -31,6 +31,7 @@ router.post("/login", (req, res) => {
       req.session.user = {
         //userName:foundUser.userName,
         email: foundUser.email,
+        id: foundUser.id,
       };
       return res.json(foundUser);
     }
@@ -46,6 +47,7 @@ router.post("/signup", (req, res) => {
       req.session.user = {
         //userName: newUser.userName,
         email: newUser.email,
+        id: newUser.id,
       };
       res.json(newUser);
     })
