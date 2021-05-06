@@ -8,8 +8,24 @@ router.get("/", (req, res) => {
 });
 
 router.get("/dashboard", (req, res) => {
+
+// const thisUser = User.findByPk(req.session.user.id, {
+//     include: [
+//       {
+//       model: Pokemon,
+//       model: Connecter
+//       }
+//   ]}
+// ).then((myPokemons) => {
+//   console.log(myPokemons);
+// })
+
+
   Pokemon.findAll({}).then((thePokemon) => {
     const allPokemons = thePokemon.map((poke) => poke.get({ plain: true }));
+
+
+
     res.render("dashboard", {
       isLoggedIn: req.session.user ? true : false,
       // userName: req.session.user.userName,
@@ -130,7 +146,7 @@ router.post("/api/connecter", async (req, res) => {
     let newPokemon = await Connecter.create({
       grade: req.body.grade,
       pokemonId: foundPokemon.id,
-      userId: req.session.id,
+      userId: req.session.user.id,
     });
     res.json(newPokemon);
   } else {
@@ -141,8 +157,9 @@ router.post("/api/connecter", async (req, res) => {
     const firstPriceType = Object.keys(result.data.data.tcgplayer.prices)[0];
     const secondPriceType = Object.keys(result.data.data.tcgplayer.prices)[1];
     const firstType = Object.keys(result.data.data.types)[0];
-
-    let createPokemon = await Pokemon.create({
+    console.log(secondPriceType);
+    if(secondPriceType) {
+      let createPokemon = await Pokemon.create({
       tcg_id: result.data.data.id,
       name: result.data.data.name,
       setName: result.data.data.set.name,
@@ -168,6 +185,39 @@ router.post("/api/connecter", async (req, res) => {
       userId: req.session.user.id,
     });
     res.json(newConnecter);
+    } else {
+      let createPokemon = await Pokemon.create({
+        tcg_id: result.data.data.id,
+        name: result.data.data.name,
+        setName: result.data.data.set.name,
+        rarity: result.data.data.rarity,
+        img_url: result.data.data.images.small,
+        tcg_link: result.data.data.tcgplayer.url,
+        price1Type: firstPriceType,
+        price1low: result.data.data.tcgplayer.prices[firstPriceType].low,
+        price1mid: result.data.data.tcgplayer.prices[firstPriceType].mid,
+        price1high: result.data.data.tcgplayer.prices[firstPriceType].high,
+        type1: result.data.data.types[firstType],
+      });
+      console.log(createPokemon);
+      console.log(createPokemon.id);
+      console.log(req.session.user.id)
+      let newConnecter = await Connecter.create({
+        grade: req.body.grade,
+        pokemonId: createPokemon.id,
+        userId: req.session.user.id,
+      });
+      res.json(newConnecter);
+    }
+    
+    // console.log(createPokemon);
+    // console.log(createPokemon.id);
+    // console.log(req.session.user.id)
+    // let newConnecter = await Connecter.create({
+    //   grade: req.body.grade,
+    //   pokemonId: createPokemon.id,
+    //   userId: req.session.user.id,
+    // });
    }
 });
 
