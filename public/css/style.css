@@ -1,25 +1,28 @@
 .home-forms {
     display: flex;
     justify-content: space-around;
-    margin: 36px -12px 32px 10px;
+    top: 10%;
+    left: 8%;
+    /* width: 33%; */
 }
 .form-control{
     width: 250px;
     height:25px;
 }
 #loginForm {
-    margin-top: 75px
+    margin-top: 8%
 }
 
 .pokedex{
     position: relative;
-    width: 850px;
-    height: 650px;
+    width: 40vw;
+    height: 55vh;
     margin: 50px auto;
     background-image: url("/images/pokedex.png");
     border: 2px solid #ccc;
     box-shadow: 7px 7px 20px #555;
     background-repeat: no-repeat;
+    background-size: contain;
 } 
 
 .rowz {
