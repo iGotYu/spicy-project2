@@ -1,8 +1,10 @@
 const searchFormHandler = async (event) => {
   event.preventDefault();
   const searchName = document.querySelector("#search").value;
-  console.log(searchName);
-  location.assign(`/search/${searchName}`);
+  const searchType = document.querySelector("#cardSubType").value;
+  // console.log(searchName);
+  // console.log(searchType);
+ location.assign(`/search/${searchName}/${searchType}`);
 };
 
 document
