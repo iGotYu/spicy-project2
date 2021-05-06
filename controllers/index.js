@@ -9,29 +9,24 @@ router.get("/", (req, res) => {
 
 router.get("/dashboard", (req, res) => {
 
-// const thisUser = User.findByPk(req.session.user.id, {
-//     include: [
-//       {
-//       model: Pokemon,
-//       model: Connecter
-//       }
-//   ]}
-// ).then((myPokemons) => {
-//   console.log(myPokemons);
-// })
+const thisUser = User.findByPk(req.session.user.id, {
+    include: [
+      {
+      model: Connecter,
+      include: [Pokemon]
+      }
+  ]}
+).then((myPokemons) => {
+  console.log(myPokemons);
+  const allPokemons = myPokemons.connecters.map((poke) => poke.get({plain: true}));
+  const yourPokes = allPokemons.map(pokemon =>pokemon.pokemon);
 
+  res.render("dashboard", { 
+    isLoggedIn: req.session.user ? true : false,
+    userName: req.session.user.userName,
+    pokemon: yourPokes});
+});
 
-  Pokemon.findAll({}).then((thePokemon) => {
-    const allPokemons = thePokemon.map((poke) => poke.get({ plain: true }));
-
-
-
-    res.render("dashboard", {
-      isLoggedIn: req.session.user ? true : false,
-      // userName: req.session.user.userName,
-      pokemon: allPokemons,
-    });
-  });
 });
 router.post("/login", (req, res) => {
   User.findOne({
