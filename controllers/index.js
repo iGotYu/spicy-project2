@@ -159,9 +159,10 @@ router.post("/api/connecter", async (req, res) => {
       price2high: result.data.data.tcgplayer.prices[secondPriceType].high,
       type1: result.data.data.types[firstType],
     });
-    console.log(createPokemon);
-    console.log(createPokemon.id);
-    console.log(req.session.user.id)
+    // console.log(createPokemon);
+    // console.log(createPokemon.id);
+    
+    // console.log(req.session.user.id)
     let newConnecter = await Connecter.create({
       grade: req.body.grade,
       pokemonId: createPokemon.id,

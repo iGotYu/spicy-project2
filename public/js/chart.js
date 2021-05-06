@@ -1,16 +1,3 @@
-// const Connecter = require("../../models/Connecter");
-
-
-// let grades = Connecter.findAll({
-//   attributes: { include: ['grade'] }
-// });
-// console.log(grades)
-
-// let sales = Connecter.findAll({
-//   attributes: { include: ['sale'] }
-// });
-// console.log(sales)
-
 let myChart = document.getElementById("myChart").getContext("2d");
 let cardValue = document.getElementById("cardValue");
 
