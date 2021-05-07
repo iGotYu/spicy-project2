@@ -1,0 +1,74 @@
+<div class=" searchContainer">
+  <div class="row align-items-start">
+    <div class="col-5">
+      <form class="form search-form">
+        <div class="form-group text-white">
+          <label for="pokemon-search">Search Pokemon Name:</label>
+          <input class="form-input" type="text" id="search" />
+        </div>
+    </div>
+    <div class="col-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <label class="input-group-text " for="subTypeSelect">SubType</label>
+        </div>
+        <select class="custom-select" id="cardSubType">
+          <option value="BREAK">BREAK</option>
+          <option value="Baby">Baby</option>
+          <option value="Basic">Basic</option>
+          <option value="EX">EX</option>
+          <option value="GX">GX</option>
+          <option value="Goldenrod Game Corner">Goldenrod Game Corner</option>
+          <option value="Item">Item</option>
+          <option value="LEGEND">LEGEND</option>
+          <option value="Level-Up">Level-Up</option>
+          <option value="MEGA">MEGA</option>
+          <option value="Pokemon Tool">Pokemon Tool</option>
+          <option value="Pokemon Tool F">Pokemon Tool F</option>
+          <option value="Restored">Restored</option>
+          <option value="Rocket's Secret Machine ">Rocket's Secret Machine</option>
+          <option value="Special">Special</option>
+          <option value="Stadium">Stadium</option>
+          <option value="Stage 1">Stage 1</option>
+          <option value="Stage 2">Stage 2</option>
+          <option value="Supporter">Supporter</option>
+          <option value="TAG TEAM">TAG TEAM</option>
+          <option value="Technical Machine">Technical Machine</option>
+          <option value="V">V</option>
+          <option value="VMAX">VMAX</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group2 ">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+<div class="rowz">
+  {{#if card}}
+  {{#if isLoggedIn}}
+  {{#each card}}
+  {{> displaysearchresults isLoggedIn=true}}
+  {{/each}}
+  {{else}}
+  {{#each card}}
+  {{> displaysearchresults isLoggedIn=false}}
+  {{/each}}
+  {{/if}}
+  {{else}}
+  <h1>Sorry, we didn't find any cards matching your search criteria.</h1>
+  {{/if}}
+</div>
+
+{{!--
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> --}}
+{{!--
+<script src="./js/search.js"></script> --}}
+
+<script src="/js/saveCard.js"></script>
+<script src="/js/search.js"></script>

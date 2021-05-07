@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Ampharos",
+    "setName": "Platinum",
+    "rarity": "Rare Holo",
+    "tcg_id": "pl1-1",
+    "img_url": "https://images.pokemontcg.io/pl1/1.png",
+    "tcg_link": "https://prices.pokemontcg.io/tcgplayer/pl1-1",
+    "price1Type": "holofoil",
+    "price1low": 6.75,
+    "price1mid": 7.86,
+    "price1high": 14.98,
+    "price2Type": "reverse holofoil",
+    "price2low": 13.91,
+    "price2mid": 14,
+    "price2high": 14.98,
+    "type1": "Lightning",
+    "type2":null,
+    "grading": 6
+  },
+  {
+    "name": "Venusaur-EX",
+    "setName": "XY",
+    "rarity": "Rare Holo EX",
+    "tcg_id": "xy1-1",
+    "img_url": "https://images.pokemontcg.io/xy1/1.png",
+    "tcg_link": "http://prices.pokemontcg.io/tcgplayer/xy1-1",
+    "price1Type": "holofoil",
+    "price1low": 0.78,
+    "price1mid": 2.51,
+    "price1high": 12.27,
+    "type1": "Grass",
+    "type2":null,
+    "grading": 7
+  },
+  {
+    "name": "Caterpie",
+    "setName": "McDonald's Collection 2019",
+    "rarity": "Promo",
+    "tcg_id": "mcd19-1",
+    "img_url": "https://images.pokemontcg.io/xy2/1.png",
+    "tcg_link": "https://prices.pokemontcg.io/tcgplayer/xy2-1",
+    "price1Type": "holofoil",
+    "price1low": 0.08,
+    "price1mid": 0.25,
+    "price1high": 1.25,
+    "type1": "Grass",
+    "type2":null,
+    "grading": 8
+  }
+]
