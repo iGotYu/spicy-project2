@@ -34,6 +34,7 @@ router.get("/dashboard", (req, res) => {
   }
 });
 router.post("/login", (req, res) => {
+ try{
   User.findOne({
     where: {
       email: req.body.email,
@@ -53,8 +54,12 @@ router.post("/login", (req, res) => {
       return res.json(foundUser);
     }
   });
+}catch (err) {
+  res.render('homepage');
+}
 });
 router.post("/signup", (req, res) => {
+ try{
   User.create({
     //userName: req.body.userName,
     email: req.body.email,
@@ -72,6 +77,9 @@ router.post("/signup", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+}catch (err) {
+  res.render('homepage');
+}
 });
 
 router.get("/logout", (req, res) => {
@@ -84,6 +92,7 @@ router.get("/chart", (req, res) => {
 });
 
 router.get("/api/chart", (req, res) => {
+ try{
   const myUser = User.findByPk(req.session.user.id, {
     include: [
       {
@@ -102,6 +111,9 @@ router.get("/api/chart", (req, res) => {
     res.json({ yourGrades, yourSales, yourDates });
     //res.render("graph", { isLoggedIn: req.session.user ? true : false, grades: yourGrades, sales:yourSales, dates: yourDates });
   });
+}catch (err) {
+  res.render("dashboard", {isLoggedIn: req.session.user ? true : false})
+}
 });
 
 router.get("/search", (req, res) => {
