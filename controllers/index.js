@@ -87,9 +87,10 @@ router.get("/chart", (req, res) => {
   const allMyPokemon = data.connecters.map((poke) => poke.get({plain: true}));
    const yourGrades = allMyPokemon.map(pokemon =>pokemon.grade);
    const yourSales = allMyPokemon.map(pokemon =>pokemon.sale);
+   const yourDates = allMyPokemon.map(pokemon =>pokemon.saleDate);
 console.log(yourGrades, yourSales );
-res.json(yourGrades);
-//res.render("graph", { isLoggedIn: req.session.user ? true : false });
+//console.logres.json(yourSales)
+res.render("graph", { isLoggedIn: req.session.user ? true : false, grades: yourGrades, sales:yourSales, dates: yourDates });
 });
 
 }); 
