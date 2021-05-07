@@ -8,26 +8,26 @@ router.get("/", (req, res) => {
 });
 
 router.get("/dashboard", (req, res) => {
-
-const thisUser = User.findByPk(req.session.user.id, {
+  const thisUser = User.findByPk(req.session.user.id, {
     include: [
       {
-      model: Connecter,
-      include: [Pokemon]
-      }
-  ]}
-).then((myPokemons) => {
-  const allPokemons = myPokemons.connecters.map((poke) => poke.get({plain: true}));
-  //const yourPokes = allPokemons.map(pokemon =>pokemon.pokemon);
+        model: Connecter,
+        include: [Pokemon],
+      },
+    ],
+  }).then((myPokemons) => {
+    const allPokemons = myPokemons.connecters.map((poke) =>
+      poke.get({ plain: true })
+    );
+    //const yourPokes = allPokemons.map(pokemon =>pokemon.pokemon);
 
-  console.log(allPokemons);
-  res.render("dashboard", { 
-    isLoggedIn: req.session.user ? true : false,
-    userName: req.session.user.userName,
-    pokemon: allPokemons,
+    console.log(allPokemons);
+    res.render("dashboard", {
+      isLoggedIn: req.session.user ? true : false,
+      userName: req.session.user.userName,
+      pokemon: allPokemons,
+    });
   });
-});
-
 });
 router.post("/login", (req, res) => {
   User.findOne({
@@ -40,7 +40,7 @@ router.post("/login", (req, res) => {
       return res.status(401).send("Login Failed");
     }
     if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-      console.log(foundUser.dataValues.id)
+      console.log(foundUser.dataValues.id);
       req.session.user = {
         //userName:foundUser.userName,
         email: foundUser.email,
@@ -76,25 +76,29 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/chart", (req, res) => {
+  res.render("graph", { isLoggedIn: req.session.user ? true : false });
+});
+
+router.get("/api/chart", (req, res) => {
   const myUser = User.findByPk(req.session.user.id, {
     include: [
       {
-      model: Connecter
-      }
-  ]}
-)
-.then((data) => {
-  const allMyPokemon = data.connecters.map((poke) => poke.get({plain: true}));
-   const yourGrades = allMyPokemon.map(pokemon =>pokemon.grade);
-   const yourSales = allMyPokemon.map(pokemon =>pokemon.sale);
-   const yourDates = allMyPokemon.map(pokemon =>pokemon.saleDate);
-console.log(yourGrades, yourSales );
-//console.logres.json(yourSales)
-res.render("graph", { isLoggedIn: req.session.user ? true : false, grades: yourGrades, sales:yourSales, dates: yourDates });
+        model: Connecter,
+      },
+    ],
+  }).then((data) => {
+    const allMyPokemon = data.connecters.map((poke) =>
+      poke.get({ plain: true })
+    );
+    const yourGrades = allMyPokemon.map((pokemon) => pokemon.grade);
+    const yourSales = allMyPokemon.map((pokemon) => pokemon.sale);
+    const yourDates = allMyPokemon.map((pokemon) => pokemon.saleDate);
+    //console.log(yourGrades, yourSales );
+    //console.logres.json(yourSales)
+    res.json({ yourGrades, yourSales, yourDates });
+    //res.render("graph", { isLoggedIn: req.session.user ? true : false, grades: yourGrades, sales:yourSales, dates: yourDates });
+  });
 });
-
-}); 
-
 
 router.get("/search", (req, res) => {
   res.render("search", { isLoggedIn: req.session.user ? true : false });
@@ -126,7 +130,6 @@ router.get("/search/:name/:type", (req, res) => {
     });
 });
 
-
 router.get("/search/:name", (req, res) => {
   const { name } = req.params;
   console.log(name);
@@ -149,22 +152,22 @@ router.get("/search/:name", (req, res) => {
 });
 
 router.put("/api/connecter", async (req, res) => {
-let sellPokemon = await Connecter.update(
+  let sellPokemon = await Connecter.update(
     {
       sale: req.body.sale,
       sold: req.body.sold,
-      saleDate: req.body.saleDate
+      saleDate: req.body.saleDate,
     },
-    {where: {
-    user_id: req.session.user.id,
-    pokemon_id: req.body.pokemon_id
-    },
+    {
+      where: {
+        user_id: req.session.user.id,
+        pokemon_id: req.body.pokemon_id,
+      },
+    }
+  );
+  //console.log(sellPokemon);
+  res.json(sellPokemon);
 });
-//console.log(sellPokemon);
-res.json(sellPokemon);
-})
-
-
 
 router.post("/api/connecter", async (req, res) => {
   // console.log(req.session.user.id);
@@ -189,34 +192,34 @@ router.post("/api/connecter", async (req, res) => {
     const secondPriceType = Object.keys(result.data.data.tcgplayer.prices)[1];
     const firstType = Object.keys(result.data.data.types)[0];
     console.log(secondPriceType);
-    if(secondPriceType) {
+    if (secondPriceType) {
       let createPokemon = await Pokemon.create({
-      tcg_id: result.data.data.id,
-      name: result.data.data.name,
-      setName: result.data.data.set.name,
-      rarity: result.data.data.rarity,
-      img_url: result.data.data.images.small,
-      tcg_link: result.data.data.tcgplayer.url,
-      price1Type: firstPriceType,
-      price1low: result.data.data.tcgplayer.prices[firstPriceType].low,
-      price1mid: result.data.data.tcgplayer.prices[firstPriceType].mid,
-      price1high: result.data.data.tcgplayer.prices[firstPriceType].high,
-      price2Type: secondPriceType,
-      price2low: result.data.data.tcgplayer.prices[secondPriceType].low,
-      price2mid: result.data.data.tcgplayer.prices[secondPriceType].mid,
-      price2high: result.data.data.tcgplayer.prices[secondPriceType].high,
-      type1: result.data.data.types[firstType],
-    });
-    // console.log(createPokemon);
-    // console.log(createPokemon.id);
-    
-    // console.log(req.session.user.id)
-    let newConnecter = await Connecter.create({
-      grade: req.body.grade,
-      pokemonId: createPokemon.id,
-      userId: req.session.user.id,
-    });
-    res.json(newConnecter);
+        tcg_id: result.data.data.id,
+        name: result.data.data.name,
+        setName: result.data.data.set.name,
+        rarity: result.data.data.rarity,
+        img_url: result.data.data.images.small,
+        tcg_link: result.data.data.tcgplayer.url,
+        price1Type: firstPriceType,
+        price1low: result.data.data.tcgplayer.prices[firstPriceType].low,
+        price1mid: result.data.data.tcgplayer.prices[firstPriceType].mid,
+        price1high: result.data.data.tcgplayer.prices[firstPriceType].high,
+        price2Type: secondPriceType,
+        price2low: result.data.data.tcgplayer.prices[secondPriceType].low,
+        price2mid: result.data.data.tcgplayer.prices[secondPriceType].mid,
+        price2high: result.data.data.tcgplayer.prices[secondPriceType].high,
+        type1: result.data.data.types[firstType],
+      });
+      // console.log(createPokemon);
+      // console.log(createPokemon.id);
+
+      // console.log(req.session.user.id)
+      let newConnecter = await Connecter.create({
+        grade: req.body.grade,
+        pokemonId: createPokemon.id,
+        userId: req.session.user.id,
+      });
+      res.json(newConnecter);
     } else {
       let createPokemon = await Pokemon.create({
         tcg_id: result.data.data.id,
@@ -233,7 +236,7 @@ router.post("/api/connecter", async (req, res) => {
       });
       console.log(createPokemon);
       console.log(createPokemon.id);
-      console.log(req.session.user.id)
+      console.log(req.session.user.id);
       let newConnecter = await Connecter.create({
         grade: req.body.grade,
         pokemonId: createPokemon.id,
@@ -241,7 +244,7 @@ router.post("/api/connecter", async (req, res) => {
       });
       res.json(newConnecter);
     }
-    
+
     // console.log(createPokemon);
     // console.log(createPokemon.id);
     // console.log(req.session.user.id)
@@ -250,7 +253,7 @@ router.post("/api/connecter", async (req, res) => {
     //   pokemonId: createPokemon.id,
     //   userId: req.session.user.id,
     // });
-   }
+  }
 });
 
 module.exports = router;
