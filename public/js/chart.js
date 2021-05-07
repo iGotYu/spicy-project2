@@ -9,7 +9,7 @@ cardValue.addEventListener("change", (event) => {
   }).then((res) => {
     console.log(res);
     if (res) {
-      console.log("good");
+      console.log(res.body);
     } else {
       alert("Save failed!");
     }

@@ -202,7 +202,7 @@ router.post("/api/connecter", async (req, res) => {
       price1high: result.data.data.tcgplayer.prices[firstPriceType].high,
       price2Type: secondPriceType,
       price2low: result.data.data.tcgplayer.prices[secondPriceType].low,
-      price2mid: result.data.data.tcgplayer.prices[secondPriceType].mid,
+      price2mid: result.data.data.tcgplayer.pricesm[secondPriceType].mid,
       price2high: result.data.data.tcgplayer.prices[secondPriceType].high,
       type1: result.data.data.types[firstType],
     });
