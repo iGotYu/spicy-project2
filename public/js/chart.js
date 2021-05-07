@@ -1,6 +1,8 @@
 let myChart = document.getElementById("myChart").getContext("2d");
 let cardValue = document.getElementById("selChart");
 
+let data1 = [];
+let data2 = [];
 cardValue.addEventListener("change", (event) => {
   event.preventDefault();
 
@@ -16,15 +18,6 @@ cardValue.addEventListener("change", (event) => {
   });
 });
 
-let grade = document.getElementById("grades");
-let sale = document.getElementById("sales");
-let date = document.getElementById("dates");
-console.log(grade)
-console.log(sale)
-console.log(date)
-
-let data1 = [];
-let data2 = [];
 
 let pokemonChart = new Chart(myChart, {
   type: "line",

@@ -39,6 +39,8 @@ h1{
 .background-image{
 background-image: url("/images/map.png");
 background-size: cover;
+height: 100%;
+
 
 }
 .rowz {
@@ -46,6 +48,16 @@ background-size: cover;
     flex-wrap: wrap;
     justify-content: space-evenly;
     background-image: url("/images/map.png");
+}
+.chart {
+    position: relative;
+    width: 70vw;
+    height: 40vh;
+    margin: 50px auto;
+    border: 2px solid #ccc;
+    box-shadow: 7px 7px 20px #555;
+    background-color: rgba(255, 255, 255, 0.904);
+    z-index: 1;
 }
 
 @media screen and (max-width: 475px) {
