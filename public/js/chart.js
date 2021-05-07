@@ -37,7 +37,10 @@ window.addEventListener("load", (event) => {
             },
           ],
         },
+          
         options: {
+          responsive: true,
+          maintainAspectRatio: false,
           plugins: {
             title: {
               display: true,
@@ -47,6 +50,7 @@ window.addEventListener("load", (event) => {
           layout: {
             padding: 40,
           },
+          
         },
       });
     });
