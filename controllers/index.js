@@ -76,8 +76,24 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/chart", (req, res) => {
-  res.render("graph", { isLoggedIn: req.session.user ? true : false });
+  const myUser = User.findByPk(req.session.user.id, {
+    include: [
+      {
+      model: Connecter
+      }
+  ]}
+)
+.then((data) => {
+  const allMyPokemon = data.connecters.map((poke) => poke.get({plain: true}));
+   const yourGrades = allMyPokemon.map(pokemon =>pokemon.grade);
+   const yourSales = allMyPokemon.map(pokemon =>pokemon.sale);
+console.log(yourGrades, yourSales )
+// res.json(yourPokes)
+res.render("graph", { isLoggedIn: req.session.user ? true : false });
 });
+
+}); 
+
 
 router.get("/search", (req, res) => {
   res.render("search", { isLoggedIn: req.session.user ? true : false });
@@ -186,13 +202,14 @@ router.post("/api/connecter", async (req, res) => {
       price1high: result.data.data.tcgplayer.prices[firstPriceType].high,
       price2Type: secondPriceType,
       price2low: result.data.data.tcgplayer.prices[secondPriceType].low,
-      price2mid: result.data.data.tcgplayer.prices[secondPriceType].mid,
+      price2mid: result.data.data.tcgplayer.pricesm[secondPriceType].mid,
       price2high: result.data.data.tcgplayer.prices[secondPriceType].high,
       type1: result.data.data.types[firstType],
     });
-    console.log(createPokemon);
-    console.log(createPokemon.id);
-    console.log(req.session.user.id)
+    // console.log(createPokemon);
+    // console.log(createPokemon.id);
+    
+    // console.log(req.session.user.id)
     let newConnecter = await Connecter.create({
       grade: req.body.grade,
       pokemonId: createPokemon.id,

@@ -1,18 +1,20 @@
-// const Connecter = require("../../models/Connecter");
-
-
-// let grades = Connecter.findAll({
-//   attributes: { include: ['grade'] }
-// });
-// console.log(grades)
-
-// let sales = Connecter.findAll({
-//   attributes: { include: ['sale'] }
-// });
-// console.log(sales)
-
 let myChart = document.getElementById("myChart").getContext("2d");
-let cardValue = document.getElementById("cardValue");
+let cardValue = document.getElementById("selChart");
+
+cardValue.addEventListener("change", (event) => {
+  event.preventDefault();
+
+  fetch("/chart", {
+    method: "GET",
+  }).then((res) => {
+    console.log(res);
+    if (res) {
+      console.log(res.body);
+    } else {
+      alert("Save failed!");
+    }
+  });
+});
 
 let data1 = [];
 let data2 = [];
@@ -36,18 +38,18 @@ let pokemonChart = new Chart(myChart, {
     ],
     datasets: [
       {
-      label: "Collection Profit",
-      data: data1,
-      backgroundColor: "pink",
-      borderColor: "yellow",
-    },
-    {
-      label: "Collection Value",
-      data: data2,
-      backgroundColor: "salmon",
-      borderColor: "aqua",
-    }
-  ],
+        label: "Collection Profit",
+        data: data1,
+        backgroundColor: "pink",
+        borderColor: "yellow",
+      },
+      {
+        label: "Collection Value",
+        data: data2,
+        backgroundColor: "salmon",
+        borderColor: "aqua",
+      },
+    ],
   },
   options: {
     plugins: {
