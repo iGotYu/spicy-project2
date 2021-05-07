@@ -40,8 +40,7 @@ router.get("/dashboard", (req, res) => {
 
 //send the user here when they are trying to log in
 router.post("/login", (req, res) => {
-
-  //search the User table to see if there is a matching email address
+ try{
   User.findOne({
     where: {
       email: req.body.email,
@@ -63,11 +62,14 @@ router.post("/login", (req, res) => {
       return res.status(400).send("Login Failed");
     }
   });
+}catch (err) {
+  res.render('homepage');
+}
 });
 
 //create a new account when you click the signup button
 router.post("/signup", (req, res) => {
-  //create a new User with the information taken from the form
+ try{
   User.create({
     email: req.body.email,
     password: req.body.password,
@@ -84,6 +86,9 @@ router.post("/signup", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+}catch (err) {
+  res.render('homepage');
+}
 });
 
 //end the current session
@@ -99,6 +104,7 @@ router.get("/chart", (req, res) => {
 
 //get Users Connecter data to display in the chart
 router.get("/api/chart", (req, res) => {
+ try{
   const myUser = User.findByPk(req.session.user.id, {
     include: [
       {
@@ -116,6 +122,9 @@ router.get("/api/chart", (req, res) => {
     //send the data to the script to display
     res.json({yourSales, yourDates });
   });
+}catch (err) {
+  res.render("dashboard", {isLoggedIn: req.session.user ? true : false})
+}
 });
 
 //render the search page
