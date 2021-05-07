@@ -4,12 +4,12 @@
     <h4 class="card-title">{{pokemon.name}}</h4>
     <h6 class="card-text">Set: {{pokemon.setName}}</h6>
     <h6 class="card-text">Rarity: {{pokemon.rarity}}</h6>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal{{pokemon.id}}">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal{{id}}">
       More Info
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="modal{{pokemon.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
