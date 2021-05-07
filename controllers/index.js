@@ -88,15 +88,9 @@ router.get("/chart", (req, res) => {
    const yourGrades = allMyPokemon.map(pokemon =>pokemon.grade);
    const yourSales = allMyPokemon.map(pokemon =>pokemon.sale);
    const yourDates = allMyPokemon.map(pokemon =>pokemon.saleDate);
-<<<<<<< HEAD
-console.log(yourGrades, yourSales, yourDates )
-// res.json(yourPokes)
-res.render("graph", { isLoggedIn: req.session.user ? true : false, grades: yourGrades, sales:yourSales, dates: yourDates});
-=======
 console.log(yourGrades, yourSales );
 //console.logres.json(yourSales)
 res.render("graph", { isLoggedIn: req.session.user ? true : false, grades: yourGrades, sales:yourSales, dates: yourDates });
->>>>>>> develop
 });
 
 }); 
