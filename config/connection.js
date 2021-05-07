@@ -1,8 +1,10 @@
+// Setup our connection to run locally or through JawsDB and Heroku
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
 let sequelize;
 
+//Keep our information secure using variables in the .env file
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
