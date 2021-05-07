@@ -2,8 +2,7 @@
 let myChart = document.getElementById("myChart").getContext("2d");
 let cardValue = document.getElementById("selChart");
 
-//listen for changes on the dropdown menu and then generate a chart
-cardValue.addEventListener("change", (event) => {
+window.addEventListener("load", (event) => {
   event.preventDefault();
 
   //fetch the user data we need from the api/chart route
