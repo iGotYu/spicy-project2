@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection.js");
 
 class Pokemon extends Model {}
-
+//the pokemon model should recieve all of its information from the PokemonTCG API
 Pokemon.init({
   id: {
     type: DataTypes.INTEGER,
