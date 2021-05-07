@@ -65,7 +65,7 @@
             {{else}}
             <form class ="card-sell-form text-center">
               <div class ="form-group">
-                <h5>I Sold my Beloved Card :( </h5>
+                <h5>Card Sale Information</h5>
                 <label for="cardPrice{{pokemon.id}}">Sale Price</label>
                 <input type="text" id="cardPrice{{pokemon.id}}" placeholder="$XXX.xx">
               </div>
@@ -74,7 +74,7 @@
                 <input type="date" id="saleDate{{pokemon.id}}">
               </div>
               <input type="hidden" class="cardid" value={{pokemon.id}}>
-            <button type="submit" class="btn btn-primary">Submit Sold</button>
+            <button type="submit" class="btn btn-primary">Mark As Sold</button>
             </form>
                 {{/if}}
 

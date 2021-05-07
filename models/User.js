@@ -3,7 +3,7 @@ const sequelize = require('../config/connection.js');
 const bcrypt = require('bcrypt');
 
 class User extends Model{};
-
+//User model will primarily use email and password for logging in, encrypt the password when creating a new User
 User.init({
     id: {
         type: DataTypes.INTEGER,

@@ -2,7 +2,7 @@ const { Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection.js');
 
 class Connecter extends Model {}
-
+//the Connecter class will bridge our Users and our Pokemon, it will also contain specific card data like grade and sale information
 Connecter.init ({ 
     id: {
         type: DataTypes.INTEGER,
