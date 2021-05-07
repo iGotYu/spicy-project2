@@ -16,6 +16,13 @@ cardValue.addEventListener("change", (event) => {
   });
 });
 
+let grade = document.getElementById("grades");
+let sale = document.getElementById("sales");
+let date = document.getElementById("dates");
+console.log(grade)
+console.log(sale)
+console.log(date)
+
 let data1 = [];
 let data2 = [];
 
