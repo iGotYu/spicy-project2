@@ -17,14 +17,15 @@ const thisUser = User.findByPk(req.session.user.id, {
       }
   ]}
 ).then((myPokemons) => {
-  console.log(myPokemons);
   const allPokemons = myPokemons.connecters.map((poke) => poke.get({plain: true}));
-  const yourPokes = allPokemons.map(pokemon =>pokemon.pokemon);
+  //const yourPokes = allPokemons.map(pokemon =>pokemon.pokemon);
 
+  console.log(allPokemons);
   res.render("dashboard", { 
     isLoggedIn: req.session.user ? true : false,
     userName: req.session.user.userName,
-    pokemon: yourPokes});
+    pokemon: allPokemons,
+  });
 });
 
 });
@@ -145,6 +146,24 @@ router.get("/search/:name", (req, res) => {
       console.log(err);
     });
 });
+
+router.put("/api/connecter", async (req, res) => {
+let sellPokemon = await Connecter.update(
+    {
+      sale: req.body.sale,
+      sold: req.body.sold,
+      saleDate: req.body.saleDate
+    },
+    {where: {
+    user_id: req.session.user.id,
+    pokemon_id: req.body.pokemon_id
+    },
+});
+//console.log(sellPokemon);
+res.json(sellPokemon);
+})
+
+
 
 router.post("/api/connecter", async (req, res) => {
   // console.log(req.session.user.id);

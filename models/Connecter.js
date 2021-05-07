@@ -22,6 +22,10 @@ Connecter.init ({
         type: DataTypes.DECIMAL(10,2),
         allowNull: true,
     },
+    saleDate: {
+        type: DataTypes.DATE,
+        allowNull: true,
+    }
 },
 {
     sequelize,
