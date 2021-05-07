@@ -1,7 +1,7 @@
 let myChart = document.getElementById("myChart").getContext("2d");
 let cardValue = document.getElementById("selChart");
 
-cardValue.addEventListener("change", (event) => {
+window.addEventListener("load", (event) => {
   event.preventDefault();
 
   fetch("/api/chart", {
