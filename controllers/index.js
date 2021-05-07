@@ -111,11 +111,14 @@ router.get("/api/chart", (req, res) => {
         model: Connecter,
       },
     ],
+      order:[
+        [Connecter, "saleDate", "asc"]],
   }).then((data) => {
     // format the data so its easier to use
     const allMyPokemon = data.connecters.map((poke) =>
       poke.get({ plain: true })
     );
+    console.log(allMyPokemon);
     //grab the sale price and sale date of the users cards
     const yourSales = allMyPokemon.map((pokemon) => pokemon.sale);
     const yourDates = allMyPokemon.map((pokemon) => pokemon.saleDate);
