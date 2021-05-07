@@ -8,6 +8,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/dashboard", (req, res) => {
+  try{ 
   const thisUser = User.findByPk(req.session.user.id, {
     include: [
       {
@@ -28,6 +29,9 @@ router.get("/dashboard", (req, res) => {
       pokemon: allPokemons,
     });
   });
+  } catch (err) {
+    res.render('homepage');
+  }
 });
 router.post("/login", (req, res) => {
   User.findOne({
