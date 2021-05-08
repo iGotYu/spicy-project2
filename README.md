@@ -44,3 +44,9 @@ if on the deployed site use our link deployed through heroku if not running node
 ## Email:
 [igotyuu@gmail.com](mailto:igotyuu@gmail.com), [trevor.eckberg@gmail.com](mailto:trevor.eckberg@gmail.com)
 
+
+## Links:
+
+Presentation: https://docs.google.com/presentation/d/1_FNfw-mU6mEllwuJiJ5gAO-9H_STOPt5E4JML57W9j4/edit?usp=sharing
+
+Heroku: https://te-pokedex-irl.herokuapp.com/ 
