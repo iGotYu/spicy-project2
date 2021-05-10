@@ -42,7 +42,7 @@ if on the deployed site use our link deployed through heroku if not running node
 [Trevor - github/trev-eck , Cory - github/moecory11, Andrew - github/iGotYu](https://github.com/Trevor - github/trev-eck , Cory - github/moecory11, Andrew - github/iGotYu/)
 
 ## Email:
-[igotyuu@gmail.com](mailto:igotyuu@gmail.com), [trevor.eckberg@gmail.com](mailto:trevor.eckberg@gmail.com)
+[igotyuu@gmail.com](mailto:igotyuu@gmail.com), [trevor.eckberg@gmail.com](mailto:trevor.eckberg@gmail.com), [moecory11@gmail.com](mailto:moecory11@gmail.com)
 
 
 ## Links:
